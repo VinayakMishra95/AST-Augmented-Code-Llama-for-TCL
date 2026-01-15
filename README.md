@@ -1,2 +1,10 @@
-# AST-Augmented-Code-Llama-for-TCL
-Large language models for code generation typically process programs as linear token sequences, implicitly learning syntactic structure from data. This paradigm is insufficient for control-oriented scripting languages such as Tool Command Language (TCL), where datasets are limited and syntactic correctness is tightly coupled with hierarchical command structure. We propose an AST-augmented Code Llama architecture that injects abstract syntax tree information directly at the embedding level. A dedicated AST embedding layer is introduced alongside token embeddings and hierarchical positional encodings, enforcing structural observability prior to attention.It was demonstrated that while zero-shot injection yields a minor distributional gap, a lightweight alignment phase reduces the negative log-likelihood (NLL) loss by 94.37%. This approach acts as a structural constraint rather than a decoder-side control mechanism, significantly improving the model's awareness of hierarchical command nesting and substitution syntax.
+As of 2026, Tool Command Language (TCL) continues to serve as the foundational scripting
+layer for the global semiconductor industry, powering the native APIs of all major Electronic Design
+Automation (EDA) frameworks. Despite its longevity, standard Large Language Models (LLMs)
+frequently struggle with TCL’s strict command-grouping syntax, leading to "unrecoverable execution
+failures" in critical VLSI design flows. We propose an AST-augmented Code Llama architecture
+that treats syntactic hierarchy as an explicit structural observability constraint. By injecting Abstract
+Syntax Tree (AST) metadata directly at the embedding level, we mitigate the "Brace Ambiguity"
+problem inherent in linear tokenization. Our results demonstrate a 93.54% net improvement in
+NLL loss during structural alignment and a 41.94% average gain across diverse industrial scenarios.
+Notably, the model exhibits a 5.71 confidence gain specifically in hierarchical grouping
